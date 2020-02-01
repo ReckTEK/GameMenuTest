@@ -7,6 +7,12 @@ namespace DreamGame
     public class XmlManager<T>
     {
         public Type Type;
+
+        public XmlManager()
+        {
+            Type = typeof(T);
+        }
+
         public T Load(string path)
         {
             T instance;
@@ -17,6 +23,7 @@ namespace DreamGame
             }
             return instance;
         }
+
         public void Save(string path, object obj)
         {
             using(TextWriter writer = new StreamWriter(path))

@@ -12,9 +12,13 @@ namespace DreamGame
         protected ContentManager content;
         [XmlIgnore]
         public Type Type;
+
+        public string XmlPath;
+
         public GameScreen()
         {
             Type = this.GetType();
+            XmlPath = "Content/Load/" + Type.ToString().Replace("DreamGame.", "") + ".xml";
         }
         public virtual void LoadContent()
         {
@@ -27,7 +31,7 @@ namespace DreamGame
         }
         public virtual void Update(GameTime gameTime)
         {
-
+            InputManager.Instance.Update();
         }
         public virtual void Draw(SpriteBatch spriteBatch)
         {

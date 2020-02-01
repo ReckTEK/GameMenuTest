@@ -1,39 +1,40 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
 namespace DreamGame
 {
     public class SplashScreen : GameScreen
     {
-        //Texture2D devImage1;
-        //Texture2D devImage2;
-        Texture2D splashImage;
-        public string Path;
+        public Image Image;
 
         public override void LoadContent()
         {
             base.LoadContent();
-            //devImage1 = content.Load<Texture2D>("ball");
-            //devImage2 = content.Load<Texture2D>("quick");
-            splashImage = content.Load<Texture2D>(Path);
+            Image.LoadContent();
+            Image.FadeEffect.FadeSpeed = 0.5f;
         }
         public override void UnloadContent()
         {
             base.UnloadContent();
+            Image.UnloadContent();
         }
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
+            Image.Update(gameTime);
+
+            //if (Keyboard.GetState().IsKeyDown(Keys.Enter) && !ScreenManager.Instance.IsTransitioning)
+            //  ScreenManager.Instance.ChangeScreens("SplashScreen");
+
+            if (InputManager.Instance.KeyPressed(Keys.Enter, Keys.Z))
+                ScreenManager.Instance.ChangeScreens("SplashScreen");
+                
         }
         public override void Draw(SpriteBatch spriteBatch)
         {
-            base.Draw(spriteBatch);
-            spriteBatch.Begin();
-            //spriteBatch.DrawString(Sp,"Brought to you by ReckTek Games");
-            //spriteBatch.Draw(devImage1, Vector2.Zero, Color.White);
-            //spriteBatch.Draw(devImage2, Vector2.One, Color.White);
-            spriteBatch.Draw(splashImage, Vector2.Zero, Color.White);
-            spriteBatch.End();
+            //base.Draw(spriteBatch);
+            Image.Draw(spriteBatch);
         }
     }
 }

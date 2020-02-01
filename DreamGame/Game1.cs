@@ -31,7 +31,8 @@ namespace DreamGame
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            //ballTexture = Content.Load<Texture2D>("ball");
+            ScreenManager.Instance.GraphicsDevice = GraphicsDevice;
+            ScreenManager.Instance.SpriteBatch = spriteBatch;
             ScreenManager.Instance.LoadContent(Content);
         }
 
@@ -77,25 +78,12 @@ namespace DreamGame
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
-           
             spriteBatch.Begin();
-            //spriteBatch.Draw(
-            //    ballTexture,
-            //    ballPosition,
-            //    null,
-            //    Color.White,
-            //    0f,
-            //    new Vector2(ballTexture.Width / 2, ballTexture.Height / 2),
-            //    Vector2.One,
-            //    SpriteEffects.None,
-            //    0f
-            //);
-            spriteBatch.End();
-
             ScreenManager.Instance.Draw(spriteBatch);
-
+            spriteBatch.End();
             base.Draw(gameTime);
+
+
         }
     }
 }

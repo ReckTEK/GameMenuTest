@@ -1,4 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <SplashScreen>
-  <Path>SplashImage</Path>
+  <Image>
+    <IsActive>false</IsActive>
+    <Path>image/ball</Path>
+    <Position>
+      <X>320</X>
+      <Y>240</Y>
+    </Position>
+    <Scale>
+      <X>1.75</X>
+      <Y>1.75</Y>
+    </Scale>
+    <Alpha>0.75</Alpha>
+    <Effects>FadeEffect</Effects>
+  </Image>
 </SplashScreen>

@@ -3,3 +3,10 @@
 ################################################################################
 
 /.vs/Dream
+/bin/Debug/netcoreapp3.1/runtimes
+/Dream.csproj
+/Dream.sln
+/obj
+/Content/obj/DesktopGL
+/Content/bin/DesktopGL
+/bin/Debug/netcoreapp3.1
