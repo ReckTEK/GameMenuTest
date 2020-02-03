@@ -1,4 +1,4 @@
-﻿using Dream.DreamGame.effects;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -34,6 +34,7 @@ namespace DreamGame
                 effect = (T)Activator.CreateInstance(typeof(T));
             else
             {
+                (effect as ImageEffect).IsActive = true;
                 var obj = this;
                 (effect as ImageEffect).LoadContent(ref obj);
             }
@@ -44,15 +45,14 @@ namespace DreamGame
         {
             if(effectList.ContainsKey(effect))
             {
-                var obj = this;
                 effectList[effect].IsActive = true;
+                var obj = this;
                 effectList[effect].LoadContent(ref obj);
             }
         }
 
         public void DeactiveateEffect(string effect)
         {
-            
             if (effectList.ContainsKey(effect))
             {
                 effectList[effect].IsActive = false;
@@ -88,7 +88,7 @@ namespace DreamGame
             dimensions.X += font.MeasureString(Text).X;
 
             if (Texture != null)
-                dimensions.Y = MathHelper.Max(Texture.Height, font.MeasureString(Text).Y);
+                dimensions.Y = Math.Max(Texture.Height, font.MeasureString(Text).Y);
             else
                 dimensions.Y = font.MeasureString(Text).Y;
 
@@ -141,9 +141,8 @@ namespace DreamGame
             origin = new Vector2(SourceRect.Width / 2,
                 SourceRect.Height / 2);
             
-            spriteBatch.Draw(Texture, Position + origin, SourceRect, Color.White * Alpha, 0.0f, origin, Scale, SpriteEffects.None, 0.0f);
+            spriteBatch.Draw(Texture, Position + origin, SourceRect, Color.White * Alpha, 
+                0.0f, origin, Scale, SpriteEffects.None, 0.0f);
         }
-
-
     }
 }

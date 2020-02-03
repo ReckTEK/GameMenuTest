@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <SplashScreen>
   <Image>
-    <IsActive>false</IsActive>
     <Path>image/ball</Path>
     <Position>
       <X>320</X>
@@ -13,5 +12,8 @@
     </Scale>
     <Alpha>0.75</Alpha>
     <Effects>FadeEffect</Effects>
+    <FadeEffect>
+      <FadeSpeed>0.5</FadeSpeed>
+    </FadeEffect>
   </Image>
 </SplashScreen>

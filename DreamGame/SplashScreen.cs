@@ -12,7 +12,6 @@ namespace DreamGame
         {
             base.LoadContent();
             Image.LoadContent();
-            Image.FadeEffect.FadeSpeed = 0.5f;
         }
         public override void UnloadContent()
         {
@@ -27,13 +26,15 @@ namespace DreamGame
             //if (Keyboard.GetState().IsKeyDown(Keys.Enter) && !ScreenManager.Instance.IsTransitioning)
             //  ScreenManager.Instance.ChangeScreens("SplashScreen");
 
+            //if (InputManager.Instance.KeyPressed(Keys.Enter, Keys.Z))
+            //    ScreenManager.Instance.ChangeScreens("SplashScreen");
+
             if (InputManager.Instance.KeyPressed(Keys.Enter, Keys.Z))
-                ScreenManager.Instance.ChangeScreens("SplashScreen");
-                
+                ScreenManager.Instance.ChangeScreens("TitleScreen");
+
         }
         public override void Draw(SpriteBatch spriteBatch)
         {
-            //base.Draw(spriteBatch);
             Image.Draw(spriteBatch);
         }
     }

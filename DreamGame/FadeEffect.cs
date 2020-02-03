@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
+
 namespace DreamGame
 {
     public class FadeEffect : ImageEffect
@@ -33,9 +34,9 @@ namespace DreamGame
             if (image.IsActive)
             {
                 if (!Increase)
-                    image.Alpha -= FadeSpeed = (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    image.Alpha -= FadeSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
                 else
-                    image.Alpha += FadeSpeed = (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    image.Alpha += FadeSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
 
                 if (image.Alpha < 0.0f)
                 {

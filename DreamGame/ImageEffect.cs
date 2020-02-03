@@ -1,7 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.Graphics;
-using System.Xml.Serialization;
 
 namespace DreamGame
 {
@@ -22,7 +19,6 @@ namespace DreamGame
 
         public virtual void UnloadContent()
         {
-
         }
 
         public virtual void Update(GameTime gameTime)
